@@ -20,16 +20,27 @@ repos:
           - yaml
           - markdown
           - html
+      - id: rustfmt
+        name: rustfmt
+        entry: scripts/git/hooks/pre-commit/rustfmt.sh
+        language: script
+        stages:
+          - commit
+        types_or:
+          - rust
 
       - id: cargo-clippy
         name: cargo-clippy
         entry: scripts/git/hooks/pre-push/cargo_lint.sh
         language: script
+        pass_filenames: false
         stages:
           - push
+
       - id: cargo-test
         name: cargo-test
         entry: scripts/git/hooks/pre-push/cargo_test.sh
         language: script
+        pass_filenames: false
         stages:
           - push

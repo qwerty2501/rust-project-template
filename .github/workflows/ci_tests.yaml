@@ -9,6 +9,7 @@ jobs:
         with:
           toolchain: stable
       - run: cargo clippy --verbose -- -D clippy::all
+      - run: cargo fmt -- --check
 
   rust-test:
     runs-on: ubuntu-latest
