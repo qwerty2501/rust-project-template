@@ -1,5 +1,5 @@
 [workspace]
 
 members = [
-	"applications/domains",
+	"productions/domains",
 ]
