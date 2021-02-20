@@ -1,0 +1,14 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+set -eu
+
+cr=$(dirname $0)
+cd $cr
+
+./hooks/pre-push/cargo_lint.sh &
+./hooks/pre-push/cargo_test.sh &
+
+wait
+
+
