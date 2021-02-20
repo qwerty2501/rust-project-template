@@ -1,5 +1,6 @@
 [env]
 RUSTFLAGS="-D warnings"
+CARGO_MAKE_EXTEND_WORKSPACE_MAKEFILE = true
 
 [tasks.clean]
 command = "cargo"
