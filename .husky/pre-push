@@ -27,7 +27,11 @@ do
 		fi
 	fi
 	./hooks/pre-push/cargo_lint.sh &
+	cargo_lint_proc=$!
 	./hooks/pre-push/cargo_test.sh &
+	cargo_test_proc=$!
+	wait $cargo_lint_proc
+	wait $cargo_test_proc
 
 	wait
 done
