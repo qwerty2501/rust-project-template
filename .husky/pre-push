@@ -19,21 +19,12 @@ do
 	else
 		if [ "$remote_sha" = $z40 ]
 		then
-			# New branch, examine all commits
 			range="$local_sha"
 		else
-			# Update to existing branch, examine new commits
 			range="$remote_sha..$local_sha"
 		fi
 	fi
-	./hooks/pre-push/cargo_lint.sh &
-	cargo_lint_proc=$!
-	./hooks/pre-push/cargo_test.sh &
-	cargo_test_proc=$!
-	wait $cargo_lint_proc
-	wait $cargo_test_proc
-
-	wait
+	./hooks/pre-push/cargo_test.sh $1 $2 $local_ref $local_sha $remote_ref $remote_sha $range
 done
 
 exit 0

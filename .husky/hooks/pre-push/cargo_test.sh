@@ -7,4 +7,4 @@ wd=$(dirname $0)/../../..
 cd $wd
 
 
-cargo test
+cargo make pre-push
