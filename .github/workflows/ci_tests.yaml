@@ -8,7 +8,7 @@ jobs:
       - uses: actions-rs/toolchain@v1
         with:
           toolchain: stable
-      - run: cargo clippy --verbose -- -D clippy::all
+      - run: cargo clippy --verbose -- -D clippy::all -D warnings
       - run: cargo fmt -- --check
 
   rust-test:
