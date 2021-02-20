@@ -2,15 +2,17 @@
 
 set -eu
 
-cr=$(dirname $0)
-cd $cr
+cd $(dirname $0)
+
 
 
 procs=()
 for entry in ./*
 do
-	if [ "$(basename $0)" != "$(basename $entry)" ]; then
-		$entry &
+	script="$(basename $entry)"
+	if [ "$(basename $0)" != "$script" ]; then
+		echo "start run:$script"
+		./$script &
 		procs=("${procs[@]}" $!)
 	fi
 done

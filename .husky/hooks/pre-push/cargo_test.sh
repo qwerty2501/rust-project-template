@@ -3,8 +3,8 @@
 set -eu
 
 
-wd=$(dirname $0)/../../..
-cd $wd
+cd $(dirname $0)/../../..
+wd=$(pwd)
 
 if $wd/.husky/hooks/utils/is_remote_branch_wip.sh; then
 	exit 0
