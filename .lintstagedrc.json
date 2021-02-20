@@ -1,4 +1,4 @@
 {
-	"*.json,*.yaml,*.md,*.html": "npm run fix:prettier",
-	"*.rs,**/Cargo.{toml,lock}": ".husky/hooks/pre-commit/rustfmt.sh"
+	"*.{json,yaml,md,html}": "npm run fix:prettier",
+	"*.rs": ".husky/hooks/pre-commit/rustfmt.sh"
 }
