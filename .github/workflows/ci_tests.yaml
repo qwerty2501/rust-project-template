@@ -8,7 +8,8 @@ jobs:
       - uses: actions-rs/toolchain@v1
         with:
           toolchain: stable
-      - run: cargo make lint --verbose
+      - run: cargo clippy --verbose -- -D clippy::all -D warnings
+      - run: cargo fmt -- --check
 
   rust-test:
     runs-on: ubuntu-latest
