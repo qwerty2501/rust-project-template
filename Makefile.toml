@@ -15,7 +15,6 @@ dependencies = ["clean"]
 install_crate = { rustup_component_name = "clippy" }
 command = "cargo"
 args = ["clippy"]
-dependencies = ["clean"]
 
 [tasks.test]
 command = "cargo"
