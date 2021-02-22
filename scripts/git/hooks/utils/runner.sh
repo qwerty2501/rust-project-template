@@ -11,7 +11,7 @@ do
 	script="$(basename $entry)"
 	if [ "$(basename $0)" != "$script" ]; then
 		echo "start run:$script"
-		${dir%/}$script &
+		${dir%/}/$script &
 		procs=("${procs[@]}" $!)
 	fi
 done
