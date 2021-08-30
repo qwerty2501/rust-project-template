@@ -8,8 +8,7 @@ jobs:
       - uses: actions-rs/toolchain@v1
         with:
           toolchain: stable
-      - run: cargo clippy --verbose -- -D clippy::all -D warnings
-      - run: cargo fmt -- --check
+      - run: scripts/lint/lint_rust.sh
 
   rust-test:
     runs-on: ubuntu-latest
@@ -18,8 +17,6 @@ jobs:
       - uses: actions-rs/toolchain@v1
         with:
           toolchain: stable
-      - run: cargo build --verbose
-      - run: cargo test --verbose
+      - run: scripts/test/test_rust.sh
 env:
-  RUSTFLAGS: "-D warnings"
   CARGO_TERM_COLOR: always

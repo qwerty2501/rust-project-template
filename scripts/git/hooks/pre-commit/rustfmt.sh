@@ -1,8 +1,6 @@
 #!/bin/bash
 
-set -eu
-wd=$(dirname $0)/../../../..
-cd $wd
+source $(dirname $0)/../../../prepare
 file_path=$1
 
 cargo fmt -- $file_path
